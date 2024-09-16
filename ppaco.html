@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Layout</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .item.directorio {
+            flex: 2 2 50%;
+            background: url('Directorio.webp') no-repeat center center;
+            background-size: cover;
+            transition: transform 0.5s ease;
+        }
+        .item.empresa {
+            flex: 2 2 50%;
+            background: url('empresa1.webp') no-repeat center center;
+            background-size: cover;
+            transition: transform 0.5s ease;
+        }
+        .item.proyecto {
+            flex: 2 2 50%;
+            background: url('Proyectos.webp') no-repeat center center;
+            background-size: cover;
+            transition: transform 0.5s ease;
+        }
+        .item.biblioteca {
+            flex: 1 1 50%;
+            background: url('biblioteca.webp') no-repeat center center;
+            background-size: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .item:hover .overlay {
+            opacity: 1;
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item directorio" id="directorio">
+            <div class="overlay">
+                <span>Directorio de empleados</span>
+            </div>
+        </div>
+        <div class="item empresa" id="empresas">
+            <div class="overlay">
+                <span>Empresas alojadas</span>
+            </div>
+        </div>
+        <div class="item proyecto" id="proyectos">
+            <div class="overlay">
+                <span>Proyectos tecnológicos</span>
+            </div>
+        </div>
+        <div class="item biblioteca" id="biblioteca">
+            <div class="overlay">
+                <span>Biblioteca de ferias</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
